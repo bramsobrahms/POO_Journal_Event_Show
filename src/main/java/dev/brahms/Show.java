@@ -130,10 +130,10 @@ public class Show  extends Evenement implements Searchable{
 
             strBuild.append("\t- ");
             strBuild.append(style);
-            strBuild.append(" ( ")
+            strBuild.append(" (")
                     .append(nbr)
                     .append(nbr > 1 ? " artistes" : " artiste")
-                    .append(" ) \r\n )");
+                    .append(")\r\n");
         }
 
         return getTexte() + " - "

@@ -44,9 +44,7 @@ class ShowTest {
 
         String sunday = "2024-04-21T12:30";
 
-        assertThrows(InvalidDateException.class, () -> {
-            new Show("Concert Rasta", sunday);
-        });
+        assertThrows(InvalidDateException.class, () -> new Show("Concert Rasta", sunday));
     }
 
     @Test
@@ -69,6 +67,45 @@ class ShowTest {
         assertTrue(listArtist.contains(bob));
         assertTrue(listArtist.contains(denis));
         assertFalse(listArtist.contains(elvis));
+
+    }
+
+    @Test
+    void testToString() {
+
+        Show show = new Show("Fête de la musique", "2023-06-21T18:30");
+
+        Artist bob = new Artist("The King of Raggae", "Bob", "Marley", Style.REGGAE);
+        Artist denis = new Artist("The prince of Raggae", "Dennis", "Brown", Style.REGGAE);
+        Artist peter = new Artist("The love of Raggae", "Peter", "Tosh", Style.REGGAE);
+        Artist jimmy = new Artist("The son of Raggae", "Jimmy", "Cliff", Style.REGGAE);
+        Artist tupac = new Artist("The creator of hip hop", "Tupac", "Shakur", Style.HIP_HOP);
+        Artist jay = new Artist("the prince of hip hop", "Jay", "Z", Style.HIP_HOP);
+        Artist elvis = new Artist("The King of Rock", "Elvis", "Presley", Style.ROCK);
+
+        show.getArtists().add(bob);
+        show.getArtists().add(denis);
+        show.getArtists().add(peter);
+        show.getArtists().add(jimmy);
+        show.getArtists().add(tupac);
+        show.getArtists().add(jay);
+        show.getArtists().add(elvis);
+
+        String result = """
+                Fête de la musique - 21/06/2023 à 18:30 - Gratuit
+                \t- ROCK (1 artiste)
+                \t- HIP_HOP (2 artistes)
+                \t- REGGAE (4 artistes)
+                """;
+
+        /*
+          Remplace tous les séparateurs de ligne dans la chaîne générée par la méthode toString()
+          avec le caractère de saut de ligne universel "\n".
+         */
+        String stringPhrase = show.toString().replace(System.lineSeparator(), "\n");
+
+        assertEquals(result, stringPhrase);
+
     }
 
 
