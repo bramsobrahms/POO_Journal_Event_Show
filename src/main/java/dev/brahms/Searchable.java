@@ -4,5 +4,5 @@ import java.util.List;
 
 public interface Searchable {
 
-    List<String> findBy(String s);
+    List findBy(String s);
 }
