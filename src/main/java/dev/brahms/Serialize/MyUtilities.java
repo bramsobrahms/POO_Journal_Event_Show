@@ -9,8 +9,18 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
+/**
+ * Utility class for loading and saving Show Object
+ * to/from XML files using XStream Core
+ */
 public class MyUtilies {
 
+    /**
+     * Loads a Show object from XML file.
+     *
+     * @param filename the name of the XML file to load the Show object from
+     * @return The Show object loaded from the XML file.
+     */
     public static Show loadShowFromFile(String filename) {
 
         File file = new File(filename);
@@ -23,6 +33,11 @@ public class MyUtilies {
 
     }
 
+    /**
+     * Configures the XStream instance with aliases and permissions for Show and Artist classes.
+     *
+     * @param xstream The XStream instance to be configured.
+     */
     private static void configureXS(XStream xstream) {
 
         xstream.addPermission(AnyTypePermission.ANY);
@@ -37,6 +52,12 @@ public class MyUtilies {
 
     }
 
+    /**
+     * Saves a Show object to an XML file.
+     *
+     * @param show The Show object to be saved.
+     * @param filename The name of the XML file to save the Show object to.
+     */
     public static void saveShowToFile(Show show, String filename) {
 
         File file = new File(filename);
