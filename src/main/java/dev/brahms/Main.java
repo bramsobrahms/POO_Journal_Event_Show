@@ -1,6 +1,6 @@
 package dev.brahms;
 
-import dev.brahms.Serialize.MyUtilies;
+import dev.brahms.Serialize.MyUtilities;
 
 public class Main {
     public static void main(String[] args) {
@@ -15,10 +15,10 @@ public class Main {
         System.out.println(show);
 
         // Saves the details of the concert to an XML file.
-        MyUtilies.saveShowToFile(show, "dataFile.xml");
+        MyUtilities.saveShowToFile(show, "dataFile.xml");
 
         // Restores the details of the concert from the XML file.
-        Show restore = MyUtilies.loadShowFromFile("dataFile.xml");
+        Show restore = MyUtilities.loadShowFromFile("dataFile.xml");
 
         System.out.println(restore);
     }
