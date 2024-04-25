@@ -33,8 +33,13 @@ public class Show  extends Evenement implements Searchable{
      * @param price price of the Show
      * @param artists list of artists invited to the Show
      */
-    public Show(String texte, LocalDateTime dateEvent, double price, ArrayList<Artist> artists) {
-        super(texte, dateEvent);
+    public Show(String texte, String dateEvent, double price, ArrayList<Artist> artists) {
+        super(texte, LocalDateTime.parse(dateEvent));
+
+        if(LocalDateTime.parse(dateEvent).getDayOfWeek().equals(DayOfWeek.SUNDAY)) {
+            throw new InvalidDateException("The show can be created on Sunday");
+        }
+
         this.price = price;
         this.artists = artists;
     }
