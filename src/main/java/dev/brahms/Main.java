@@ -14,8 +14,10 @@ public class Main {
 
         System.out.println(show);
 
+        // Saves the details of the concert to an XML file.
         MyUtilies.saveShowToFile(show, "dataFile.xml");
 
+        // Restores the details of the concert from the XML file.
         Show restore = MyUtilies.loadShowFromFile("dataFile.xml");
 
         System.out.println(restore);
