@@ -13,7 +13,7 @@ import java.io.IOException;
  * Utility class for loading and saving Show Object
  * to/from XML files using XStream Core
  */
-public class MyUtilies {
+public class MyUtilities {
 
     /**
      * Loads a Show object from XML file.
